@@ -1,134 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>School Donations Dashboard</title>
-  <link rel="stylesheet" href="../static/lib/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/lib/css/keen-dashboards.css">
-  <link rel="stylesheet" href="../static/lib/css/dc.css">
-  <link rel="stylesheet" href="../static/css/custom.css">
+    <title>School Donations Dashboard</title>
+    <link rel="stylesheet" href="../static/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/lib/css/keen-dashboards.css">
+    <link rel="stylesheet" href="../static/lib/css/dc.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
 </head>
 <body class="application">
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="">School Donations Dashboard</a>
-      </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">School Donations Dashboard</a>
+        </div>
     </div>
-  </div>
-  <div  id="outer" class="container-fluid">
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="row">
-          <!-- Time Chart -->
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Number of Donations
-              </div>
-              <div class="chart-stage">
+</div>
+<div class="container">
+    <div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 1</h1>
+                <div id="transpersec"></div>
+            </section>
+        </div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 2</h1>
+                <div id="transfeesusd"></div>
+            </section>
+        </div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 3</h1>
                 <div id="time-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Time Chart -->
-
-          <!-- Resources -->
-          <div class="col-sm-6">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Resources Type
-              </div>
-              <div class="chart-stage">
-                <div id="resource-type-row-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Resources -->
-
-          <!-- funding Pie -->
-          <div class="col-sm-6">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Funding Status
-              </div>
-              <div class="chart-stage">
-                <div id="funding-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- funding Pie -->
+            </section>
         </div>
-      </div>
-
-      <!-- Poverty -->
-      <div class="col-sm-3">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Poverty Level
-          </div>
-          <div class="chart-stage">
-            <div id="poverty-level-row-chart"></div>
-          </div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 4</h1>
+                <div id="time-chart"></div>
+            </section>
         </div>
-      </div>
-      <!-- Poverty -->
-
-      <!-- menu select -->
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Donation State
-          </div>
-          <div class="chart-stage">
-            <div id="menu-select"></div>
-          </div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 5</h1>
+                <div id="time-chart"></div>
+            </section>
         </div>
-      </div>
-      <!-- menu select -->
-
-      <!-- Metric 1 -->
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Total Number of Donations
-          </div>
-          <div class="chart-stage" style="background: #33CC99;
-            position: relative;
-            font-size: 29px;
-            color: white;
-            vertical-align: middle;
-            text-align: center;
-            padding-top: 12px;
-            padding-bottom: 0px;">
-            <div id="number-projects-nd"></div>
-          </div>
+        <div class="col-6 container servicesstyle">
+            <section>
+                <h1 class="serviceshead">Photo Service 6</h1>
+                <div id="time-chart"></div>
+            </section>
         </div>
-      </div>
-      <!-- Metric 1 -->
-
-      <!-- Metric 2 -->
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Total Donations in USD
-          </div>
-          <div class="chart-stage">
-            <div id="total-donations-nd"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Metric 2 -->
     </div>
-  </div>
-  <hr>
-  <p class="small text-muted"> Data viz &#9829; from Code Institute</p>
-  <script src="../static/lib/js/jquery.min.js"></script>
-  <script src="../static/lib/js/bootstrap.min.js"></script>
-  <script src="../static/lib/js/crossfilter.js"></script>
-  <script src="../static/lib/js/d3.js"></script>
-  <script src="../static/lib/js/dc.js"></script>
-  <script src="../static/lib/js/queue.js"></script>
-  <script src="../static/lib/js/keen.min.js"></script>
-  <script src="../static/js/graph.js"></script>
+</div>
+<hr>
+<p class="small text-muted"> Data viz &#9829; from Code Institute</p>
+<script src="../static/lib/js/jquery.min.js"></script>
+<script src="../static/lib/js/bootstrap.min.js"></script>
+<script src="../static/lib/js/crossfilter.js"></script>
+<script src="../static/lib/js/d3.js"></script>
+<script src="../static/lib/js/dc.js"></script>
+<script src="../static/lib/js/queue.js"></script>
+<script src="../static/lib/js/keen.min.js"></script>
+<script src="../static/js/graph.js"></script>
 </body>
 </html>

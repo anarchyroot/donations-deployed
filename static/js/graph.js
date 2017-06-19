@@ -2,131 +2,105 @@
  * Created by matthewaltomare on 12/06/2017.
  */
 queue()
-   .defer(d3.json, "/data")
-   .await(makeGraphs);
+    .defer(d3.json, "/transactionspersecond")
+    .defer(d3.json, "/transactionsfeesusd")
+    .await(makeGraphs);
 
-function makeGraphs(error, projectsJson) {
+function makeGraphs(error, persecond, transfees) {
+    transfees_graph(error, transfees);
+    persecond_graph(error, persecond);
+}
 
-   //Clean projectsJson data
-   var donorsUSProjects = projectsJson;
-   var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
-   donorsUSProjects.forEach(function (d) {
-       d["date_posted"] = dateFormat.parse(d["date_posted"]);
-       d["date_posted"].setDate(1);
-       d["total_donations"] = +d["total_donations"];
-   });
+function transfees_graph(error, transfees) {
 
-
-   //Create a Crossfilter instance
-   var ndx = crossfilter(donorsUSProjects);
-
-   //Define Dimensions
-   var dateDim = ndx.dimension(function (d) {
-       return d["date_posted"];
-   });
-   var resourceTypeDim = ndx.dimension(function (d) {
-       return d["resource_type"];
-   });
-   var povertyLevelDim = ndx.dimension(function (d) {
-       return d["poverty_level"];
-   });
-   var stateDim = ndx.dimension(function (d) {
-       return d["school_state"];
-   });
-   var totalDonationsDim = ndx.dimension(function (d) {
-       return d["total_donations"];
-   });
-
-   var fundingStatus = ndx.dimension(function (d) {
-       return d["funding_status"];
-   });
+    //Clean projectsJson data
+    var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
+    transfees.forEach(function (d) {
+        d["Date"] = dateFormat.parse(d["Date"]);
+    });
 
 
-   //Calculate metrics
-   var numProjectsByDate = dateDim.group();
-   var numProjectsByResourceType = resourceTypeDim.group();
-   var numProjectsByPovertyLevel = povertyLevelDim.group();
-   var numProjectsByFundingStatus = fundingStatus.group();
-   var totalDonationsByState = stateDim.group().reduceSum(function (d) {
-       return d["total_donations"];
-   });
-   var stateGroup = stateDim.group();
+    //Create a Crossfilter instance
+    var ndx = crossfilter(transfees);
+
+    //Define Dimensions
+    var dateDim = ndx.dimension(function (d) {
+        return d["Date"];
+    });
+
+    //Calculate metrics
+    var valueByDate = dateDim.group().reduceSum(function (d) {
+        return d["Value"];
+    });
+
+    // Define values (to be used in charts)
+    var minDate = dateDim.bottom(1)[0]["Date"];
+    var maxDate = dateDim.top(1)[0]["Date"];
 
 
-   var all = ndx.groupAll();
-   var totalDonations = ndx.groupAll().reduceSum(function (d) {
-       return d["total_donations"];
-   });
+    //Charts
+    var transactionsPerSecond = dc.lineChart("#transpersec");
+    // var timeChart = dc.lineChart("#time-chart");
 
-   var max_state = totalDonationsByState.top(1)[0].value;
+    transactionsPerSecond
+        .width(1000)
+        .height(400)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(dateDim)
+        .group(valueByDate)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .elasticY(true)
+        .xAxisLabel("Year")
+        .yAxis().ticks(4);
 
-   //Define values (to be used in charts)
-   var minDate = dateDim.bottom(1)[0]["date_posted"];
-   var maxDate = dateDim.top(1)[0]["date_posted"];
+    dc.renderAll();
+}
 
-   //Charts
-   var timeChart = dc.barChart("#time-chart");
-   var resourceTypeChart = dc.rowChart("#resource-type-row-chart");
-   var povertyLevelChart = dc.rowChart("#poverty-level-row-chart");
-   var numberProjectsND = dc.numberDisplay("#number-projects-nd");
-   var totalDonationsND = dc.numberDisplay("#total-donations-nd");
-   var fundingStatusChart = dc.pieChart("#funding-chart");
+function persecond_graph(error, projectsJson) {
 
-
-   selectField = dc.selectMenu('#menu-select')
-       .dimension(stateDim)
-       .group(stateGroup);
-
-
-   numberProjectsND
-       .formatNumber(d3.format("d"))
-       .valueAccessor(function (d) {
-           return d;
-       })
-       .group(all);
-
-   totalDonationsND
-       .formatNumber(d3.format("d"))
-       .valueAccessor(function (d) {
-           return d;
-       })
-       .group(totalDonations)
-       .formatNumber(d3.format(".3s"));
-
- timeChart
-       .width(800)
-       .height(200)
-       .margins({top: 10, right: 50, bottom: 30, left: 50})
-       .dimension(dateDim)
-       .group(numProjectsByDate)
-       .transitionDuration(500)
-       .x(d3.time.scale().domain([minDate, maxDate]))
-       .elasticY(true)
-       .xAxisLabel("Year")
-       .yAxis().ticks(4);
-
-   resourceTypeChart
-       .width(300)
-       .height(250)
-       .dimension(resourceTypeDim)
-       .group(numProjectsByResourceType)
-       .xAxis().ticks(4);
-
-   povertyLevelChart
-       .width(300)
-       .height(250)
-       .dimension(povertyLevelDim)
-       .group(numProjectsByPovertyLevel)
-       .xAxis().ticks(4);
-
-   fundingStatusChart
-       .height(220)
-       .radius(90)
-       .innerRadius(40)
-       .transitionDuration(1500)
-       .dimension(fundingStatus)
-       .group(numProjectsByFundingStatus);
+    //Clean projectsJson data
+    var donorsUSProjects = projectsJson;
+    var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
+    donorsUSProjects.forEach(function (d) {
+        console.log(d["Date"]);
+        d["Date"] = dateFormat.parse(d["Date"]);
+    });
 
 
-   dc.renderAll();
+    //Create a Crossfilter instance
+    var ndx = crossfilter(donorsUSProjects);
+
+    //Define Dimensions
+    var dateDim = ndx.dimension(function (d) {
+        return d["Date"];
+    });
+
+    //Calculate metrics
+    var valueByDate = dateDim.group().reduceSum(function (d) {
+        return d["Value"];
+    });
+
+    //Define values (to be used in charts)
+    var minDate = dateDim.bottom(1)[0]["Date"];
+    var maxDate = dateDim.top(1)[0]["Date"];
+
+    //Charts
+    var transactionsfeesusd = dc.lineChart("#transfeesusd");
+    // var timeChart = dc.lineChart("#transfeesusd");
+
+    transactionsfeesusd
+        .width(1000)
+        .height(400)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(dateDim)
+        .group(valueByDate)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .elasticY(true)
+        .xAxisLabel("Year")
+        .yAxis().ticks(4);
+
+
+    dc.renderAll();
 }
