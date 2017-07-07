@@ -9,6 +9,7 @@ MONGODB_HOST = '51.255.83.181'
 MONGODB_PORT = 27017
 DBS_NAME = 'Blockchain'
 
+
 @app.route("/")
 def index():
     """
@@ -43,7 +44,5 @@ def get_valuesCollection(collection):
         return json.dumps(list(projects))
 
 
-
-
 if __name__ == "__main__":
-    app.run(host='51.255.83.181', port=5000, debug=True)
+    app.run(host='localhost', port=5000, debug=True)

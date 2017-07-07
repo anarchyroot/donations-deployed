@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@sftp://root@51.255.83.181:22/cygdrive/c/Program Files/Python36/Scripts/pip3.6.exe" />
+        <remote-mappings server-id="python@sftp://root@51.255.83.181:22/cygdrive/c/Program Files/Python36/python.exe" />
+      </list>
+    </list>
+  </component>
+</project>
