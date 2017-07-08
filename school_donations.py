@@ -15,7 +15,7 @@ def index():
     """
     A Flask view to serve the main dashboard page.
     """
-    return render_template("index.html")
+    return render_template('index.html')
 
 
 @app.route("/<collection>")
