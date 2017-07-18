@@ -45,4 +45,4 @@ def get_valuesCollection(collection):
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(host='51.255.83.181', port=5000, debug=True)
