@@ -11,53 +11,59 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="">Blockchain Bitcoin Charts</a>
+	        <a class="navbar-brand" href="#">Blockchain Bitcoin Charts</a>
         </div>
     </div>
 </div>
 <div class="container">
-    <a id="nya" href="#" onclick="draw_a_chart('avg-block-size', 'Average Block Size');">Average Block Size</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('bip-9-segwit', 'Percentage of blocks signalling SegWit support');">Percentage of blocks signalling SegWit support</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('bitcoin-unlimited-share', 'Percentage of blocks signalling Bitcoin Unlimited support');">Percentage of blocks signalling Bitcoin Unlimited support</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('blocks-size', 'Blockchain Size');">Blockchain Size</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('cost-per-transaction-percent', 'Cost % of Transaction Volume');">Cost % of Transaction Volume</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('estimated-transaction-volume-usd', 'Estimated USD Transaction Value');">Estimated USD Transaction Value</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('hash-rate', 'Hash Rate');">Hash Rate</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('market-cap', 'Market Capitalization');">Market Capitalization</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('market-price', 'Market Price (USD)');">Market Price (USD)</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('median-confirmation-time', 'Median Confirmation Time');">Median Confirmation Time</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('mempool-count', 'Mempool Transaction Count');">Mempool Transaction Count</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('mempool-growth', 'Mempool Size Growth');">Mempool Size Growth</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('mempool-size', 'Mempool Size');">Mempool Size</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('miners-revenue', 'Miners Revenue');">Miners Revenue</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('my-wallet-n-users', 'Blockchain Wallet Users');">Blockchain Wallet Users</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-orphaned-blocks', 'Number Of Orphaned Blocks');">Number Of Orphaned Blocks</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-transactions', 'Confirmed Transactions Per Day');">Confirmed Transactions Per Day</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-transactions-excluding-chains-longer-than-100', 'Number Of Transactions Excluding Chains Longer Than 100');">Number Of Transactions Excluding Chains Longer Than 100</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-transactions-excluding-popular', 'Number of Transactions Excluding Popular Addresses');">Number of Transactions Excluding Popular Addresses</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-transactions-per-block', 'Average Number Of Transactions Per Block');">Average Number Of Transactions Per Block</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-transactions-total', 'Total Number of Transactions');">Total Number of Transactions</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('n-unique-addresses', 'Number Of Unique Addresses Used');">Number Of Unique Addresses Used</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('nya-support', 'Percentage of blocks signalling support for the New York agreement (last 200 blocks)');">Percentage of blocks signalling support for the New York agreement (last 200 blocks)</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('output-volume', 'Output Value');">Output Value</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('total-bitcoins', 'Bitcoins in circulation');">Bitcoins in circulation</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('trade-volume', 'USD Exchange Trade Volume');">USD Exchange Trade Volume</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('transaction-fees', 'Total Transaction Fees');">Total Transaction Fees</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('transaction-fees-usd', 'Total Transaction Fees in USD');">Total Transaction Fees in USD</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('transactions-per-second', 'Transaction Rate');">Transaction Rate</a> |
-    <a id="mp" href="#" onclick="draw_a_chart('utxo-count', 'Number of Unspent Transaction Outputs');">Number of Unspent Transaction Outputs</a> |
-    <div>
-        <div class="col-12 container servicesstyle">
-            <section>
-                <h2 id="chart-header" class="serviceshead"></h2>
-                <div id="chart-go-here"></div>
-            </section>
-        </div>
-    </div>
-
+    <ul class="nav nav-pills">
+  <li role="presentation" class="drxopdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Select Bitcoin Data Chart<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+	    <li><a id="nya" href="#" onclick="draw_a_chart('avg-block-size', 'Average Block Size');">Average Block Size</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('bip-9-segwit', 'Percentage of blocks signalling SegWit support');">Percentage of blocks signalling SegWit support</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('bitcoin-unlimited-share', 'Percentage of blocks signalling Bitcoin Unlimited support');">Percentage of blocks signalling Bitcoin Unlimited support</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('blocks-size', 'Blockchain Size');">Blockchain Size</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('cost-per-transaction-percent', 'Cost % of Transaction Volume');">Cost % of Transaction Volume</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('estimated-transaction-volume-usd', 'Estimated USD Transaction Value');">Estimated USD Transaction Value</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('hash-rate', 'Hash Rate');">Hash Rate</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('market-cap', 'Market Capitalization');">Market Capitalization</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('market-price', 'Market Price (USD)');">Market Price (USD)</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('median-confirmation-time', 'Median Confirmation Time');">Median Confirmation Time</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('mempool-count', 'Mempool Transaction Count');">Mempool Transaction Count</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('mempool-growth', 'Mempool Size Growth');">Mempool Size Growth</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('mempool-size', 'Mempool Size');">Mempool Size</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('miners-revenue', 'Miners Revenue');">Miners Revenue</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('my-wallet-n-users', 'Blockchain Wallet Users');">Blockchain Wallet Users</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-orphaned-blocks', 'Number Of Orphaned Blocks');">Number Of Orphaned Blocks</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-transactions', 'Confirmed Transactions Per Day');">Confirmed Transactions Per Day</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-transactions-excluding-chains-longer-than-100', 'Number Of Transactions Excluding Chains Longer Than 100');">Number Of Transactions Excluding Chains Longer Than 100</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-transactions-excluding-popular', 'Number of Transactions Excluding Popular Addresses');">Number of Transactions Excluding Popular Addresses</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-transactions-per-block', 'Average Number Of Transactions Per Block');">Average Number Of Transactions Per Block</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-transactions-total', 'Total Number of Transactions');">Total Number of Transactions</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('n-unique-addresses', 'Number Of Unique Addresses Used');">Number Of Unique Addresses Used</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('nya-support', 'Percentage of blocks signalling support for the New York agreement (last 200 blocks)');">Percentage of blocks signalling support for the New York agreement (last 200 blocks)</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('output-volume', 'Output Value');">Output Value</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('total-bitcoins', 'Bitcoins in circulation');">Bitcoins in circulation</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('trade-volume', 'USD Exchange Trade Volume');">USD Exchange Trade Volume</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('transaction-fees', 'Total Transaction Fees');">Total Transaction Fees</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('transaction-fees-usd', 'Total Transaction Fees in USD');">Total Transaction Fees in USD</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('transactions-per-second', 'Transaction Rate');">Transaction Rate</a></li>
+	    <li><a id="mp" href="#" onclick="draw_a_chart('utxo-count', 'Number of Unspent Transaction Outputs');">Number of Unspent Transaction Outputs</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="col-lg-8">
+	<section>
+		<h2 id="chart-header"></h2>
+		<div id="chart-go-here"></div>
+	</section>
+</div>
 </div>
 <hr>
-<p class="small text-muted"> Data viz &#9829; from Code Institute</p>
+<p class="small text-muted">Historical Bitcoin Data Charts</p>
 <script src="../static/lib/js/jquery.min.js"></script>
 <script src="../static/lib/js/bootstrap.min.js"></script>
 <script src="../static/lib/js/crossfilter.js"></script>
